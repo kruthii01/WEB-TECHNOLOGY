@@ -1,0 +1,120 @@
+
+<!DOCTYPE HTML>
+<html lang ="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name ="viewport" content ="width=devise-width,initial-scale=1.0">
+<title>Time table</title>
+</head>
+<style>
+table{
+	width:50%;
+border-collapse:collapse;
+text-align:center;
+}
+
+th,td{
+border:3px solid black;
+padding:10px;
+}
+
+th{
+background-color:#f2f2f2;
+} 
+tr:nth-child(even){
+background-color:#f9f9f9;
+}
+tr:nth-child(odd){
+background-color:#e875ea;
+}
+
+.lab{
+background-color:#ffeb3b;
+}
+
+.elective{
+background-color:#ffccbc;
+}
+
+.tfoot{
+background-color:cfd88dc;
+font-weight:bold;
+}
+
+</style>
+</head>
+<body>
+<h1>class Time table</h1>
+<table>
+<thead>
+<tr>
+<th rowspan="2">Day</th>
+<th colspan="5">subject/time</th>
+</tr>
+<tr>
+<th> 9:00-10:00</th>
+<th> 10:00-11:00</th>
+<th> 11:00-12:00</th>
+<th> 1:00-2:00</th>
+<th>2:00-3:00</th>
+</tr>
+</thread>
+<tbody>
+<tr>
+<td>Monday</td>
+<td>Mathematics</td>
+<td>physicus</td>
+<td class="lab"colspan="2">physicus lab</td>
+<td>English</td>
+</tr>
+<tr>
+<td>Tuesday</td>
+<td>Mathematics</td>
+<td>chemistry</td>
+<td>english</td>
+<td class="elective">Elective-AI</td>
+<td>free period</td>
+</tr>
+<tr>
+<td>wednesday</td>
+<td class="elective" colspan="2">Elective-Amachine learning</td>
+<td>chemistry</td>
+<td>english</td>
+<td class="lab">chemistry lab</td>
+</tr>
+<tr>
+<td>thursday</td>
+<td>mathematics</td>
+<td>physicus</td>
+<td>computer science</td>
+<td>chemistry</td>
+<td class="elective">Elective-Data science</td>
+</tr>
+<tr>
+<td>friday</td>
+<td>english</td>
+<td class="elective" colspan="2">Computer science  lab</td>
+<td>physicus</td>
+<td>chemistry</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td colspan="6">Note:Lab sessions and elective are highlighted with differnt colors.</td>
+</tr>
+</tfoot>
+</table>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
