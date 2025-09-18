@@ -1,0 +1,24 @@
+body { background-color: #fff0f0; color: #222; font-family: Georgia; }
+h1 { background: #cc3333; color: white; padding: 10px; }
+h2, h3 { color: #cc3333; }
+
+.style-box, .sidebar-box {
+  border: 2px solid #cc3333;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+button {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0;
+  border: none;
+  background: #cc3333;
+  color: white;
+  cursor: pointer;
+  border-radius: 30px;
+  font-size: 16px;
+}
+button:hover {
+  background: darkred;
+}

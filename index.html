@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Homepage</title>
+  <link id="pagestyle" rel="stylesheet" href="style1.css">
+  <script>
+    function changeStyle(sheet) {
+      document.getElementById("pagestyle").setAttribute("href", sheet);
+    }
+  </script>
+</head>
+<body>
+
+  <h1>Welcome to My Homepage</h1>
+  <p>Same Page — Different Stylesheets</p>
+
+  <table width="100%" border="0">
+    <tr>
+    
+      <td width="70%" valign="top">
+        <h2>About This Page</h2>
+        <p>
+          This page shows how different CSS files can change the look of the same HTML.
+          By pressing the style buttons, you can instantly switch between multiple
+          designs without changing the actual content.
+        </p>
+
+        <p>
+          HTML provides the structure of a webpage. CSS controls colors, fonts,
+          spacing, and layout. With separate stylesheets, we can make one page
+          appear in different themes.
+        </p>
+
+        <p>
+          This technique is useful for switching between light and dark modes,
+          or for making special print-friendly versions of a site.
+        </p>
+
+        <p>
+          Try pressing Style 1, Style 2, Style 3, and No Style on the right to
+          see the difference in design.
+        </p>
+
+        <p>
+          Even though the content remains the same, the presentation can change
+          completely. This is the power of CSS in web development.
+        </p>
+      </td>
+
+
+      <td width="30%" valign="top">
+<div class="style-box">
+        <h3>Choose Style</h3>
+        <button onclick="changeStyle('style1.css')">Style 1</button><br><br>
+        <button onclick="changeStyle('style2.css')">Style 2</button><br><br>
+        <button onclick="changeStyle('style3.css')">Style 3</button><br><br>
+         <button onclick="changeStyle('style4.css')">Style 4</button><br><br>
+
+        <button onclick="changeStyle('nostyle.css')">No Style</button>
+</div>
+        <h3>Side-Bar</h3>
+        <p>
+          This is a sidebar section. You can place extra information here, such as 
+          tips, notices, or links. The sidebar is useful for showing additional 
+          content alongside the main text.
+        </p>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

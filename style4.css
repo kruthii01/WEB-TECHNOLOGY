@@ -1,0 +1,27 @@
+body { background-color: #e6f0ff; color: #222; font-family: "Trebuchet MS", sans-serif; }
+h1 { background: #004080; color: white; padding: 10px; }
+h2, h3 { color: #004080; }
+
+.style-box, .sidebar-box {
+  border: 2px solid #004080;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  background: #f2f8ff;
+}
+
+/* Oval Buttons */
+button {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0;
+  border: none;
+  background: #004080;
+  color: white;
+  cursor: pointer;
+  border-radius: 30px; /* oval shape */
+  font-size: 16px;
+}
+button:hover {
+  background: #00264d;
+}
