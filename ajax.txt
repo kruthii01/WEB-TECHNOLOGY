@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AJAX Demo</title>
+<style>
+body{font-family:Arial;padding:20px;}
+h3{margin:5px 0;}
+button{margin:5px 0;padding:5px;}
+textarea{width:300px;margin-top:5px;}
+</style>
+</head>
+<body>
+
+<h3>AJAX without jQuery</h3>
+<button onclick="noJQ()">Load Text (No jQuery)</button><br>
+<textarea id="out1" rows="2"></textarea>
+
+<h3>AJAX with jQuery</h3>
+<button onclick="withJQ()">Load Text (jQuery)</button><br>
+<textarea id="out2" rows="2"></textarea>
+
+<h3>getJSON() Method</h3>
+<button onclick="getJ()">Load JSON Data</button><br>
+<textarea id="json1" rows="2" placeholder="Name + Age here"></textarea>
+
+<h3>parseJSON() Method</h3>
+<button onclick="parseJ()">Parse JSON</button><br>
+<textarea id="json2" rows="2" placeholder="City + 
+Pincode here"></textarea>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script>
+function noJQ(){
+  let x = new XMLHttpRequest();
+  x.onload = () => out1.value = x.responseText;
+  x.open("GET","data.txt");
+  x.send();
+}
+
+// B. AJAX with jQuery
+function withJQ(){
+  $.get("data.txt",(d)=> out2.value = d);
+}
+
+// C. getJSON()
+function getJ(){
+  $.getJSON("data.json",(d)=>{
+    json1.value = "Name: " + d.name + "\nAge: " + d.age;
+  });
+}
+
+// D. parseJSON()
+function parseJ(){
+  let s = '{"city":"Bangalore","pincode":560001}';
+  let d = JSON.parse(s);
+  json2.value = "City: " + d.city + "\nPincode: " + d.pincode;
+}
+</script>
+
+</body>
+</html>
