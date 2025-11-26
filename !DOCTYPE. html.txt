@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>A. JSON → JS Object</h3>
+<textarea id="aInput">{"name":"Alice","age":20}</textarea>
+<button onclick="toObj()">Convert</button>
+<textarea id="a" rows="2"></textarea>
+
+<h3>B. JSON Date → JS Date</h3>
+<textarea id="bInput">{"dob":"2024-01-10"}</textarea>
+<button onclick="toDate()">Convert</button>
+<textarea id="b" rows="2"></textarea>
+
+<h3>C. JSON → CSV</h3>
+<textarea id="cInput">[{"name":"Alice","age":20}]</textarea>
+<button onclick="jsonToCsv()">Convert</button>
+<textarea id="c1" rows="2"></textarea>
+
+<h3>D. CSV → JSON</h3>
+<textarea id="dInput">name,age
+Alice,20</textarea>
+<button onclick="csvToJson()">Convert</button>
+<textarea id="c2" rows="2"></textarea>
+
+<h3>E. Hash String (SHA-256)</h3>
+<textarea id="hashInput">Hello</textarea>
+<button onclick="makeHash()">Convert</button>
+<textarea id="d" rows="2"></textarea>
+
+<script>
+// A: JSON → Object
+function toObj(){
+  try {
+    let obj = JSON.parse(document.getElementById("aInput").value);
+    document.getElementById("a").value = JSON.stringify(obj, null, 2);
+  } catch(e){
+    document.getElementById("a").value = "Invalid JSON!";
+  }
+}
+
+// B: JSON Date → JS Date
+function toDate(){
+  try {
+    let obj = JSON.parse(document.getElementById("bInput").value);
+    document.getElementById("b").value = new Date(obj.dob);
+  } catch(e){
+    document.getElementById("b").value = "Invalid JSON!";
+  }
+}
+
+// C: JSON → CSV (only Alice)
+function jsonToCsv(){
+  try {
+    let arr = JSON.parse(document.getElementById("cInput").value);
+    let keys = Object.keys(arr[0]);
+    let csv = keys.join(",") + "\n" + keys.map(k => arr[0][k]).join(",");
+    document.getElementById("c1").value = csv;
+  } catch(e){
+    document.getElementById("c1").value = "Invalid JSON!";
+  }
+}
+
+// D: CSV → JSON (only Alice)
+function csvToJson(){
+  try {
+    let lines = document.getElementById("dInput").value.trim().split(/\r?\n/);
+    let keys = lines[0].split(",");
+    let values = lines[1].split(",");
+    let obj = Object.fromEntries(values.map((v,i)=>[keys[i].trim(), v.trim()]));
+    document.getElementById("c2").value = JSON.stringify([obj], null, 2);
+  } catch(e){
+    document.getElementById("c2").value = "Invalid CSV!";
+  }
+}
+
+// E: SHA-256 Hash
+async function makeHash(){
+  let text = document.getElementById("hashInput").value;
+  let data = new TextEncoder().encode(text);
+  let hash = await crypto.subtle.digest("SHA-256", data);
+  document.getElementById("d").value = Array.from(new Uint8Array(hash))
+    .map(b => b.toString(16).padStart(2,"0")).join("");
+}
+</script>
+
+</body>
+</html>
